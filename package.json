@@ -4,7 +4,7 @@
   "description": "Web app with 2 api's",
   "main": "dom.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc tape test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/fac-13/HyGiJeJe/issues"
   },
-  "homepage": "https://github.com/fac-13/HyGiJeJe#readme"
+  "homepage": "https://github.com/fac-13/HyGiJeJe#readme",
+  "devDependencies": {
+    "nyc": "^11.6.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  }
 }
