@@ -1,0 +1,19 @@
+{
+  "name": "hygijeje",
+  "version": "1.0.0",
+  "description": "Web app with 2 api's",
+  "main": "dom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-13/HyGiJeJe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-13/HyGiJeJe/issues"
+  },
+  "homepage": "https://github.com/fac-13/HyGiJeJe#readme"
+}
