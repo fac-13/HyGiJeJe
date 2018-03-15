@@ -14,12 +14,12 @@ makeRequest: function (url, callback){
             console.log("Status code" + xhr.status); 
         }
     })
-    
-    xhr.open("GET", url); 
-    xhr.send();
-    },
 
-  movieDetails: function(response){
+    xhr.open("GET", url);
+    xhr.send();
+  },
+
+  movieDetails: function (response) {
 
     // cuts input array length to maximum of 5 items
     var result = response.results; 
@@ -39,13 +39,31 @@ makeRequest: function (url, callback){
     console.log(x); 
 }
 
+  getMovieActors: function(response) {
+    if (response.cast.length > 3) {
+      response.cast.length = 3;
+    }
+
+    return response.cast.map(function(value) {
+      return value.name;
+    });
+  },
+
+  getActorInfo: function (response) {
+    var pagesObject = response.query.pages;
+
+    var result = {
+      index: pagesObject[Object.keys(pagesObject)[0]].index,
+      url: pagesObject[Object.keys(pagesObject)[0]].fullurl,
+      image: pagesObject[Object.keys(pagesObject)[0]].thumbnail.source,
+      extract: pagesObject[Object.keys(pagesObject)[0]].extract,
+    }
+
+    return result;
+  }
+
 }
 
-// module.exports = apiRequests;
 
 
-
-
-
-// //get actors names 
-// https://api.themoviedb.org/3/movie/19940/credits?api_key=9fb40ebd76d0b9d8c8904e47eb597820
+module.exports = apiRequests;
