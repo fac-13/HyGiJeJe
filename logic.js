@@ -1,18 +1,18 @@
 var apiRequests = {
 
-    
-makeRequest: function (url, callback){
-    var xhr = new XMLHttpRequest(); 
-    
-    xhr.addEventListener('load', function(){
-        if (xhr.status === 200){
-         var response = JSON.parse(xhr.responseText); 
-            callback(response); 
-        }
 
-        else {
-            console.log("Status code" + xhr.status); 
-        }
+  makeRequest: function (url, callback) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('load', function () {
+      if (xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText);
+        callback(response);
+      }
+
+      else {
+        console.log("Status code" + xhr.status);
+      }
     })
 
     xhr.open("GET", url);
@@ -22,31 +22,32 @@ makeRequest: function (url, callback){
   movieDetails: function (response, cb) {
 
     // cuts input array length to maximum of 5 items
-    var result = response.results; 
-    if(result.length > 4) {
-        result.length = 4;
+    var result = response.results;
+    if (result.length > 4) {
+      result.length = 4;
     }
 
-   cb(result.map(function(item) {
-        let innerObject = {};
-        innerObject.id = item.id;
-        innerObject.title = item.title;
-        innerObject.poster_path = item.poster_path;
-        innerObject.overview = item.overview;
-        innerObject.release_date = item.release_date;
-        return innerObject;
-    }) 
-  )
-},
+    cb(result.map(function (item) {
+      let innerObject = {};
+      innerObject.id = item.id;
+      innerObject.title = item.title;
+      innerObject.poster_path = item.poster_path;
+      innerObject.overview = item.overview;
+      innerObject.release_date = item.release_date;
+      return innerObject;
+    })
+    )
+  },
 
-  getMovieActors: function(response) {
+  getMovieActors: function (response, cb) {
     if (response.cast.length > 3) {
       response.cast.length = 3;
     }
 
-    return response.cast.map(function(value) {
+    cb(response.cast.map(function (value) {
       return value.name;
-    });
+    })
+    )
   },
 
   getActorInfo: function (response) {
@@ -66,6 +67,6 @@ makeRequest: function (url, callback){
 
 
 
-if(typeof module !== 'undefined'){
+if (typeof module !== 'undefined') {
   module.exports = apiRequests;
 }

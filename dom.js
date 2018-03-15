@@ -21,13 +21,10 @@ button.addEventListener('click', function (event) {
     //API request for movie details
     apiRequests.makeRequest(url, function (response) {
         apiRequests.movieDetails(response, function (data) {
-
-            var moviesSection = document.getElementById('#movies-output');
+            
+            // var moviesSection = document.getElementById('#movies-output');
 
             data.forEach(function (item) {
-
-                var id = item.id;
-
                 var wrapper = document.createElement("article");
                 wrapper.classList.add("list_item");
 
@@ -48,12 +45,33 @@ button.addEventListener('click', function (event) {
                 paraContent.appendChild(content);
                 wrapper.appendChild(paraContent);
 
+                var id = item.id;
+                var url2 = "https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=" + moviesKey;
+                apiRequests.makeRequest(url2, function(info) {
+                    apiRequests.getMovieActors(info, function(actors){
+                        var actors = actors.toString();
+
+                        var paraActors = document.createElement('p');
+                        var actorsNames = document.createTextNode(actors);
+                        paraActors.appendChild(actorsNames);
+
+                        wrapper.appendChild(paraActors);
+
+                        console.log(actors);
+                    });
+
+                });
+
 
                 document.querySelector("#list").appendChild(wrapper);
 
+
+
             });
-            var url2 = "https://api.themoviedb.org/3/movie/"+id+"/credits?api_key" + moviesKey;
-            makeRequest(url2, apiRequests.getMovieActors);
+
+
+            
+           
 
         })
     })
