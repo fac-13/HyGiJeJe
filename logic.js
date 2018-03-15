@@ -27,6 +27,7 @@ var apiRequests = {
 
     let result = response.map(function (item) {
       let innerObject = {};
+      innerObject.id = item.id;
       innerObject.title = item.title;
       innerObject.poster_path = item.poster_path;
       innerObject.overview = item.overview;
@@ -36,6 +37,16 @@ var apiRequests = {
 
     return result;
 
+  },
+
+  getMovieActors: function(response) {
+    if (response.cast.length > 3) {
+      response.cast.length = 3;
+    }
+
+    return response.cast.map(function(value) {
+      return value.name;
+    });
   },
 
   getActorInfo: function (response) {
