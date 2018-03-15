@@ -1,17 +1,18 @@
 var apiRequests = {
 
+    
+makeRequest: function (url, callback){
+    var xhr = new XMLHttpRequest(); 
+    
+    xhr.addEventListener('load', function(){
+        if (xhr.status === 200){
+         var response = JSON.parse(xhr.responseText); 
+            callback(response); 
+        }
 
-  makeRequest: function (url, callback) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.addEventListener('load', function () {
-      if (xhr.status === 200) {
-        var response = JSON.parse(xhr.responseText);
-        callback(response);
-      }
-      else {
-        console.log("Status code" + xhr.status);
-      }
+        else {
+            console.log("Status code" + xhr.status); 
+        }
     })
 
     xhr.open("GET", url);
@@ -21,23 +22,22 @@ var apiRequests = {
   movieDetails: function (response) {
 
     // cuts input array length to maximum of 5 items
-    if (response.length > 5) {
-      response.length = 5;
+    var result = response.results; 
+
+    if(result.length > 5) {
+        result.length = 5;
     }
 
-    let result = response.map(function (item) {
-      let innerObject = {};
-      innerObject.id = item.id;
-      innerObject.title = item.title;
-      innerObject.poster_path = item.poster_path;
-      innerObject.overview = item.overview;
-      innerObject.release_date = item.release_date;
-      return innerObject;
-    })
-
-    return result;
-
-  },
+    var x =  result.map(function(item) {
+        let innerObject = {};
+        innerObject.title = item.title;
+        innerObject.poster_path = item.poster_path;
+        innerObject.overview = item.overview;
+        innerObject.release_date = item.release_date;
+        return innerObject;
+    }) 
+    console.log(x); 
+}
 
   getMovieActors: function(response) {
     if (response.cast.length > 3) {
