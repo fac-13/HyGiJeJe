@@ -36,7 +36,7 @@ makeRequest: function (url, callback){
         innerObject.release_date = item.release_date;
         return innerObject;
     }) 
-    return x; 
+    console.log(x); 
 }
 
 }
