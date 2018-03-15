@@ -1,30 +1,42 @@
-// var moviesKey = config.movies_key;
+var apiRequests = {
 
+    
+makeRequest: function (url, callback){
+    var xhr = new XMLHttpRequest(); 
+    
+    xhr.addEventListener('load', function(){
+        if (xhr.status === 200){
+         var response = JSON.parse(xhr.responseText); 
+         callback(response); 
+        }
+        else {
+            console.log("Status code" + xhr.status); 
+        }
+    })
+    
+    xhr.open("GET", url); 
+    xhr.send();
+    },
 
-// //queries APIs
-// var url = "https://api.themoviedb.org/3/search/movie?api_key=" + moviesKey + "&query=toy+story";
+  movieDetails: function(response){
 
-// function makeRequest (url, callback){
-// var xhr = new XMLHttpRequest();
+    // cuts input array length to maximum of 5 items
+    if(response.length > 5) {
+        response.length = 5;
+    }
 
-// xhr.addEventListener('load', function(){
-//     if (xhr.status === 200){
-//      var response = JSON.parse(xhr.responseText);
-//      callback(response);
-//     }
-//     else {
-//         console.log("Status code" + xhr.status);
-//     }
-// })
+    let result = response.map(function(item) {
+        let innerObject = {};
+        innerObject.title = item.title;
+        innerObject.poster_path = item.poster_path;
+        innerObject.overview = item.overview;
+        innerObject.release_date = item.release_date;
+        return innerObject;
+    })
 
-// xhr.open("GET", url);
-// xhr.send();
-// }
+    return result; 
 
-//get movie details
-function movieDetails (response){
-
-    return response;
+}
 
 }
 
@@ -40,6 +52,8 @@ module.exports = {movieDetails: movieDetails,
 }
 
 
+
+module.exports = apiRequests;
 
 
 
