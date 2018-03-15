@@ -401,7 +401,12 @@ test("Should return an array of a maximum of 5", function(t){
     t.end(); 
 })
 
-
+// test("Should return an array of a maximum of 5", function(t){
+//     var actual = logic.movieDetails([{}, {}]).length; 
+//     var expected = 2;
+//     t.deepEqual(actual, expected, "returns an array of a maximum of 5 entires");  
+//     t.end(); 
+// })
 
 //WIKIPEDIA TESTS
 
