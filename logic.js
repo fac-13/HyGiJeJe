@@ -1,28 +1,24 @@
-// var moviesKey = config.movies_key; 
+var apiRequests = {
 
+    
+makeRequest: function (url, callback){
+    var xhr = new XMLHttpRequest(); 
+    
+    xhr.addEventListener('load', function(){
+        if (xhr.status === 200){
+         var response = JSON.parse(xhr.responseText); 
+         callback(response); 
+        }
+        else {
+            console.log("Status code" + xhr.status); 
+        }
+    })
+    
+    xhr.open("GET", url); 
+    xhr.send();
+    },
 
-// //queries APIs
-// var url = "https://api.themoviedb.org/3/search/movie?api_key=" + moviesKey + "&query=toy+story"; 
-
-// function makeRequest (url, callback){
-// var xhr = new XMLHttpRequest(); 
-
-// xhr.addEventListener('load', function(){
-//     if (xhr.status === 200){
-//      var response = JSON.parse(xhr.responseText); 
-//      callback(response); 
-//     }
-//     else {
-//         console.log("Status code" + xhr.status); 
-//     }
-// })
-
-// xhr.open("GET", url); 
-// xhr.send();
-// }
-
-//get movie details
-function movieDetails (response){
+  movieDetails: function(response){
 
     // cuts input array length to maximum of 5 items
     if(response.length > 5) {
@@ -42,8 +38,11 @@ function movieDetails (response){
 
 }
 
+}
 
-module.exports = {movieDetails: movieDetails};
+
+
+module.exports = apiRequests;
 
 
 
