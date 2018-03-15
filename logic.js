@@ -1,15 +1,15 @@
 var apiRequests = {
 
 
-  makeRequest: function (url, callback) {
+  makeRequest: function (url, dataSelect, outputInDom) {
     var xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', function () {
       if (xhr.status === 200) {
         var response = JSON.parse(xhr.responseText);
-        callback(response);
+        var formattedData = dataSelect(response);  
+        outputInDom(formattedData); // How does it wait until formattedData actually has data in it? 
       }
-
       else {
         console.log("Status code" + xhr.status);
       }
@@ -19,7 +19,7 @@ var apiRequests = {
     xhr.send();
   },
 
-  movieDetails: function (response, cb) {
+  movieDetails: function (response) {
 
     // cuts input array length to maximum of 5 items
     var result = response.results;
@@ -27,7 +27,7 @@ var apiRequests = {
       result.length = 4;
     }
 
-    cb(result.map(function (item) {
+    return result.map(function (item) {
       let innerObject = {};
       innerObject.id = item.id;
       innerObject.title = item.title;
@@ -36,7 +36,7 @@ var apiRequests = {
       innerObject.release_date = item.release_date;
       return innerObject;
     })
-    )
+    
   },
 
   getMovieActors: function (response, cb) {
