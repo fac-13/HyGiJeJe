@@ -29,6 +29,7 @@ makeRequest: function (url, callback){
 
    cb(result.map(function(item) {
         let innerObject = {};
+        innerObject.id = item.id;
         innerObject.title = item.title;
         innerObject.poster_path = item.poster_path;
         innerObject.overview = item.overview;

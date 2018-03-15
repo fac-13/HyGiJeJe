@@ -1,57 +1,63 @@
 
 // Populate movies query list in html:
 
-var moviesKey = config.movies_key; 
-var button = document.querySelector("button"); 
-var form = document.querySelector("form"); 
+var moviesKey = config.movies_key;
+var button = document.querySelector("button");
+var form = document.querySelector("form");
 
-button.addEventListener('click', function(event){
-    event.preventDefault(); 
+button.addEventListener('click', function (event) {
+    event.preventDefault();
     //removing list items
-    var wrapper = document.querySelector("#list"); 
-    
-    while(wrapper.firstChild){
-        wrapper.removeChild(wrapper.firstChild); 
+    var wrapper = document.querySelector("#list");
+
+    while (wrapper.firstChild) {
+        wrapper.removeChild(wrapper.firstChild);
     }
-    
+
     //creating URL
-    var text = document.querySelector("input").value; 
-    var url = "https://api.themoviedb.org/3/search/movie?api_key=" + moviesKey + "&query=" + text; 
-    
+    var text = document.querySelector("input").value;
+    var url = "https://api.themoviedb.org/3/search/movie?api_key=" + moviesKey + "&query=" + text;
+
     //API request for movie details
-    apiRequests.makeRequest(url, function(response){
-        apiRequests.movieDetails(response, function(data){
+    apiRequests.makeRequest(url, function (response) {
+        apiRequests.movieDetails(response, function (data) {
 
-    var moviesSection = document.getElementById('#movies-output');
+            var moviesSection = document.getElementById('#movies-output');
 
-    data.forEach(function(item) {
-        
-        var wrapper = document.createElement("article");
-        wrapper.classList.add("list_item"); 
+            data.forEach(function (item) {
 
-        var image = document.createElement("img"); 
-        image.setAttribute("src", "https://image.tmdb.org/t/p/w300/" +item.poster_path);
-        wrapper.appendChild(image); 
+                var id = item.id;
 
-        var paraTitle = document.createElement("p"); 
-        var title = document.createTextNode(item.title); 
-        paraTitle.appendChild(title); 
-        wrapper.appendChild(paraTitle);
+                var wrapper = document.createElement("article");
+                wrapper.classList.add("list_item");
 
-        var paraContent = document.createElement("p"); 
-        var content = document.createTextNode(item.overview); 
-        paraContent.appendChild(content);
-        wrapper.appendChild(paraContent); 
+                var image = document.createElement("img");
+                image.setAttribute("src", "https://image.tmdb.org/t/p/w300/" + item.poster_path);
+                image.classList.add('list_image');
+                wrapper.appendChild(image);
+
+                var paraTitle = document.createElement("p");
+                paraTitle.classList.add("list_title");
+                var title = document.createTextNode(item.title);
+                paraTitle.appendChild(title);
+                wrapper.appendChild(paraTitle);
+
+                var paraContent = document.createElement("p");
+                paraContent.classList.add("list_content");
+                var content = document.createTextNode(item.overview);
+                paraContent.appendChild(content);
+                wrapper.appendChild(paraContent);
 
 
-        document.querySelector("#list").appendChild(wrapper);  
+                document.querySelector("#list").appendChild(wrapper);
 
-    });
-    
+            });
+            var url2 = "https://api.themoviedb.org/3/movie/"+id+"/credits?api_key" + moviesKey;
+            makeRequest(url2, apiRequests.getMovieActors);
 
         })
-    } )
-   
+    })
+
 });
 
 // var test = [
