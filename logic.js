@@ -19,16 +19,15 @@ makeRequest: function (url, callback){
     xhr.send();
   },
 
-  movieDetails: function (response) {
+  movieDetails: function (response, cb) {
 
     // cuts input array length to maximum of 5 items
     var result = response.results; 
-
     if(result.length > 5) {
         result.length = 5;
     }
 
-    return result.map(function(item) {
+   cb(result.map(function(item) {
         let innerObject = {};
         innerObject.title = item.title;
         innerObject.poster_path = item.poster_path;
@@ -36,7 +35,7 @@ makeRequest: function (url, callback){
         innerObject.release_date = item.release_date;
         return innerObject;
     }) 
-     
+  )
 },
 
   getMovieActors: function(response) {
@@ -66,4 +65,6 @@ makeRequest: function (url, callback){
 
 
 
-module.exports = apiRequests;
+if(typeof module !== 'undefined'){
+  module.exports = apiRequests;
+}
