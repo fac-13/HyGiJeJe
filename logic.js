@@ -28,7 +28,7 @@ makeRequest: function (url, callback){
         result.length = 5;
     }
 
-    var x =  result.map(function(item) {
+    return result.map(function(item) {
         let innerObject = {};
         innerObject.title = item.title;
         innerObject.poster_path = item.poster_path;
@@ -36,8 +36,8 @@ makeRequest: function (url, callback){
         innerObject.release_date = item.release_date;
         return innerObject;
     }) 
-    console.log(x); 
-}
+     
+},
 
   getMovieActors: function(response) {
     if (response.cast.length > 3) {
