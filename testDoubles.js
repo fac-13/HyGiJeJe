@@ -231,7 +231,7 @@ var testDoubles = {
         }
       }
     }
-  }
+  },
   movieTest: [
       {
       vote_count: 6804,
