@@ -18,5 +18,3 @@ if (test) {
     
 }
 
-//
-var cast = 
