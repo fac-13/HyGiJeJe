@@ -24,6 +24,10 @@
 //get movie details
 function movieDetails (response){
 
+    if(response.length > 5) {
+        response.length = 5;
+    }
+
     return response; 
 
 }
