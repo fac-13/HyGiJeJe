@@ -84,3 +84,28 @@ test("The extract property should have the correct extract", function (t) {
   t.end();
 });
 
+// ACTOR DETAILS TESTS
+test("function returns an array", function(t){
+  var actual = logic.getMovieActors(testDoubles.actorTest);
+    if (Array.isArray(actual)){
+      t.pass();
+  }
+  else {
+      t.fail("It is not an array")
+  }
+  t.end();
+})
+
+test("Should return an array of no more than 3", function(t){
+  var actual = logic.getMovieActors(testDoubles.actorTest).length; 
+  var expected = 3;
+  t.deepEqual(actual, expected, "returns an array of no more than 3 entires");  
+  t.end(); 
+})
+
+test("Should return an array of strings", function(t){
+  var actual = typeof logic.getMovieActors(testDoubles.actorTest)[0]; 
+  var expected = 'string';
+  t.deepEqual(actual, expected, "Should return an array of strings " + actual);  
+  t.end(); 
+})
