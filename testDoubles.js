@@ -595,7 +595,8 @@ var testDoubles = {
   ], 
 
   actorTest : 
-    [
+    { id: 862, 
+      cast: [
       {
       cast_id: 14,
       character: "Woody (voice)",
@@ -645,8 +646,9 @@ var testDoubles = {
       name: "Wallace Shawn",
       order: 4,
       profile_path: "/oGE6JqPP2xH4tNORKNqxbNPYi7u.jpg"
-      },
+      }
     ]
+  },
 };
 
 module.exports = testDoubles;

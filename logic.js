@@ -40,11 +40,11 @@ var apiRequests = {
   },
 
   getMovieActors: function(response) {
-    if (response.length > 3) {
-      response.length = 3;
+    if (response.cast.length > 3) {
+      response.cast.length = 3;
     }
 
-    return response.map(function(value) {
+    return response.cast.map(function(value) {
       return value.name;
     });
   },
