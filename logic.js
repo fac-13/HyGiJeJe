@@ -24,7 +24,21 @@
 //get movie details
 function movieDetails (response){
 
-    return response; 
+    // cuts input array length to maximum of 5 items
+    if(response.length > 5) {
+        response.length = 5;
+    }
+
+    let result = response.map(function(item) {
+        let innerObject = {};
+        innerObject.title = item.title;
+        innerObject.poster_path = item.poster_path;
+        innerObject.overview = item.overview;
+        innerObject.release_date = item.release_date;
+        return innerObject;
+    })
+
+    return result; 
 
 }
 
