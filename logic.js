@@ -23,7 +23,7 @@ makeRequest: function (url, callback){
 
     // cuts input array length to maximum of 5 items
     var result = response.results; 
-
+    
     if(result.length > 5) {
         result.length = 5;
     }
@@ -66,4 +66,4 @@ makeRequest: function (url, callback){
 
 
 
-// module.exports = apiRequests;
+module.exports = apiRequests;

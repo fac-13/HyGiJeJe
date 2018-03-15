@@ -11,10 +11,12 @@ if (test) {
 
     test.forEach(function(item) {
         var wrapper = document.createElement('article');
-        var element = `<h1>${item.title}</h1><img src="${item.poster_path}"><p>${item.overview}</p><p>${item.release_date}</p>`;
+        var picture = "https://image.tmdb.org/t/p/w300/" + item.poster_path; 
+        var element = `<h1>${item.title}</h1><img src="${picture}"><p>${item.overview}</p><p>${item.release_date}</p>`;
         wrapper.innerHTML = element;
-        console.log(wrapper);
     });
     
 }
 
+//
+var cast = 
