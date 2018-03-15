@@ -34,20 +34,13 @@ var testDoubles = require("./testDoubles")
 
 //WIKIPEDIA TESTS
 
-
-// test("should return an object", function(t){
-//    var actual = logic.getActorInfo(testDoubles.wikiTest);
-//   var expected = testDoubles.wikiTest;
-//   t.deepEqual(actual, expected, "object should be same");
-//   t.end();
-// })
-
-// test("should target the required object", function(t){
-//   var actual = logic.getActorInfo(testDoubles.wikiTest);
-//  var expected = testDoubles.wikiTest.query.pages[149243]
-//  t.deepEqual(actual, expected, "should target the required object", expected);
-//  t.end();
-// })
+test("should target the first pages object", function(t){
+  var returnedActual = logic.getActorInfo(testDoubles.wikiTest);
+  var actual = returnedActual.index;
+ var expected = testDoubles.wikiTest.query.pages[149243].index;
+ t.deepEqual(actual, expected, "should target the required object", expected);
+ t.end();
+})
 
 
 test("should return an object with a url property", function (t) {
