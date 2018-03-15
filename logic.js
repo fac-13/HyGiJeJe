@@ -30,7 +30,15 @@ function movieDetails (response){
 
 function getActorInfo(response) {
   var pagesObject =  response.query.pages;
-  return pagesObject[Object.keys(pagesObject)[0]];
+  // return pagesObject[Object.keys(pagesObject)[0]];
+
+  var result = {
+    url: pagesObject[Object.keys(pagesObject)[0]].fullurl,
+    image: pagesObject[Object.keys(pagesObject)[0]].thumbnail.source,
+    extract: pagesObject[Object.keys(pagesObject)[0]].extract,
+  }
+
+  return result;
 
 
 }
