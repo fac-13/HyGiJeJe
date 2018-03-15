@@ -23,17 +23,17 @@ test("Should return an array of objects", function (t) {
   t.end();
 })
 
-test("Should return an array of no more than 5", function (t) {
+test("Should return an array of no more than 4", function (t) {
   var actual = logic.movieDetails(testDoubles.movieTest).length;
-  var expected = 5;
-  t.deepEqual(actual, expected, "returns an array of no more than 5 entires");
+  var expected = 4;
+  t.deepEqual(actual, expected, "returns an array of no more than 4 entires");
   t.end();
 })
 
-test("Should return an array of a maximum of 5", function (t) {
+test("Should return an array of a maximum of 4", function (t) {
   var actual = logic.movieDetails([{}, {}]).length;
   var expected = 2;
-  t.deepEqual(actual, expected, "returns an array of a maximum of 5 entires");
+  t.deepEqual(actual, expected, "returns an array of a maximum of 4 entires");
   t.end();
 })
 

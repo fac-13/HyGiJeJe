@@ -23,8 +23,8 @@ makeRequest: function (url, callback){
 
     // cuts input array length to maximum of 5 items
     var result = response.results; 
-    if(result.length > 5) {
-        result.length = 5;
+    if(result.length > 4) {
+        result.length = 4;
     }
 
    cb(result.map(function(item) {
