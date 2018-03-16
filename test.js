@@ -3,10 +3,10 @@ var logic = require("./logic");
 var testDoubles = require("./testDoubles")
 
 
-// MOVIEDETAILS TESTS
+// getMovieDetails TESTS
 
 test("function returns an array", function (t) {
-  var actual = logic.movieDetails([]);
+  var actual = logic.getMovieDetails(testDoubles.movieTest);
   if (Array.isArray(actual)) {
     t.pass();
   }
@@ -17,21 +17,21 @@ test("function returns an array", function (t) {
 })
 
 test("Should return an array of objects", function (t) {
-  var actual = typeof logic.movieDetails(testDoubles.movieTest)[0];
+  var actual = typeof logic.getMovieDetails(testDoubles.movieTest)[0];
   var expected = 'object';
   t.deepEqual(actual, expected, "returns an array of objects");
   t.end();
 })
 
 test("Should return an array of no more than 4", function (t) {
-  var actual = logic.movieDetails(testDoubles.movieTest).length;
+  var actual = logic.getMovieDetails(testDoubles.movieTest).length;
   var expected = 4;
   t.deepEqual(actual, expected, "returns an array of no more than 4 entires");
   t.end();
 })
 
 test("Should return an array of a maximum of 4", function (t) {
-  var actual = logic.movieDetails([{}, {}]).length;
+  var actual = logic.getMovieDetails(testDoubles.movieTestShort).length;
   var expected = 2;
   t.deepEqual(actual, expected, "returns an array of a maximum of 4 entires");
   t.end();
@@ -84,7 +84,9 @@ test("The extract property should have the correct extract", function (t) {
   t.end();
 });
 
+
 // ACTOR DETAILS TESTS
+
 test("function returns an array", function (t) {
   var actual = logic.getMovieActors(testDoubles.actorTest);
   if (Array.isArray(actual)) {
