@@ -28,6 +28,16 @@ button.addEventListener('click', function (event) {
 
 // Display the movies on the screen 
 function displayMovies(movies) {
+
+    if (Object.keys(movies).length == 0){
+        var div = document.createElement("article"); 
+        var paraError = document.createElement("p"); 
+        var errorText = document.createTextNode("No results found."); 
+        paraError.appendChild(errorText); 
+        div.appendChild(paraError); 
+        document.querySelector("#list").appendChild(div);
+    } else {
+
     movies.forEach(function (movie) {
 
         movieIds.push(movie.id);
@@ -57,6 +67,7 @@ function displayMovies(movies) {
     });
 
     apiRequests.buildActorUrl(movieIds);
+}
     
 }
 
@@ -89,17 +100,7 @@ function displayActor(actor){
         }
 
     }
- 
 
-        
-        // if (Object.keys(data).length == 0){
-        //     var div = document.createElement("article"); 
-        //     var paraError = document.createElement("p"); 
-        //     var errorText = document.createTextNode("No results found."); 
-        //     paraError.appendChild(errorText); 
-        //     div.appendChild(paraError); 
-        //     document.querySelector("#list").appendChild(div);
-        // }
         
 
 
