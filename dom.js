@@ -5,14 +5,14 @@ var moviesKey = config.movies_key;
 var button = document.querySelector("button");
 var form = document.querySelector("form");
 
-var movieIds = []; 
+var movieIds = [];
 
 button.addEventListener('click', function (event) {
     event.preventDefault();
     //removing list items
     var wrapper = document.querySelector("#list");
     movieIds = [];
-    
+
     while (wrapper.firstChild) {
         wrapper.removeChild(wrapper.firstChild);
     }
@@ -29,78 +29,78 @@ button.addEventListener('click', function (event) {
 // Display the movies on the screen 
 function displayMovies(movies) {
 
-    if (Object.keys(movies).length == 0){
-        var div = document.createElement("article"); 
-        var paraError = document.createElement("p"); 
-        var errorText = document.createTextNode("No results found."); 
-        paraError.appendChild(errorText); 
-        div.appendChild(paraError); 
+    if (Object.keys(movies).length == 0) {
+        var div = document.createElement("article");
+        var paraError = document.createElement("p");
+        var errorText = document.createTextNode("No results found 😟");
+        paraError.appendChild(errorText);
+        div.appendChild(paraError);
         document.querySelector("#list").appendChild(div);
     } else {
 
-    movies.forEach(function (movie) {
+        movies.forEach(function (movie) {
 
-        movieIds.push(movie.id);
+            movieIds.push(movie.id);
 
-        var wrapper = document.createElement("article");
-        wrapper.classList.add("list_item");
+            var wrapper = document.createElement("article");
+            wrapper.classList.add("list_item");
 
-        var image = document.createElement("img");
-        image.setAttribute("src", "https://image.tmdb.org/t/p/w300/" + movie.poster_path);
-        image.classList.add('list_image');
-        wrapper.appendChild(image);
+            var image = document.createElement("img");
+            image.setAttribute("src", "https://image.tmdb.org/t/p/w300/" + movie.poster_path);
+            image.classList.add('list_image');
+            wrapper.appendChild(image);
 
-        var paraTitle = document.createElement("p");
-        paraTitle.classList.add("list_title");
-        var title = document.createTextNode(movie.title);
-        paraTitle.appendChild(title);
-        wrapper.appendChild(paraTitle);
+            var paraTitle = document.createElement("p");
+            paraTitle.classList.add("list_title");
+            var title = document.createTextNode(movie.title);
+            paraTitle.appendChild(title);
+            wrapper.appendChild(paraTitle);
 
-        var paraContent = document.createElement("p");
-        paraContent.classList.add("list_content");
-        var content = document.createTextNode(movie.overview);
-        paraContent.appendChild(content);
-        wrapper.appendChild(paraContent);
+            var paraContent = document.createElement("p");
+            paraContent.classList.add("list_content");
+            var content = document.createTextNode(movie.overview);
+            paraContent.appendChild(content);
+            wrapper.appendChild(paraContent);
 
-        document.querySelector("#list").appendChild(wrapper);
+            document.querySelector("#list").appendChild(wrapper);
 
-    });
+        });
 
-    apiRequests.buildActorUrl(movieIds);
-}
-    
+        apiRequests.buildActorUrl(movieIds);
+    }
+
 }
 
 // Display the information from wikipedia
-function displayActor(actor){
-        var div = document.createElement('div');
-        div.classList.add('list_profile');
+function displayActor(actor) {
+    var div = document.createElement('div');
+    div.classList.add('list_profile');
 
-        var link = document.createElement('a');
-        link.setAttribute('href', actor.url);
+    var link = document.createElement('a');
+    link.setAttribute('href', actor.url);
 
-        var img = document.createElement('img');
-        img.setAttribute('src', actor.image);
-        link.appendChild(img);
+    var img = document.createElement('img');
+    img.setAttribute('src', actor.image);
+    link.appendChild(img);
 
-        var para = document.createElement('p');
-        var extract = document.createTextNode(actor.extract);
-        para.appendChild(extract);
+    var para = document.createElement('p');
+    var extract = document.createTextNode(actor.extract);
+    para.appendChild(extract);
 
-        div.appendChild(link);
-        div.appendChild(para);
+    div.appendChild(link);
+    div.appendChild(para);
 
-        var list = document.getElementsByClassName('list_item');
+    var list = document.getElementsByClassName('list_item');
 
-        for(var i=0; i < list.length; i++) {
-            if(list[i].childNodes.length <= 6) {
-                list[i].appendChild(div);
-                break;
-            } 
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].childNodes.length <= 6) {
+            list[i].appendChild(div);
+            break;
         }
-
     }
 
-        
+}
+
+
 
 
