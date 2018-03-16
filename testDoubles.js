@@ -232,7 +232,56 @@ var testDoubles = {
       }
     }
   },
-  movieTest: [
+
+  movieTestShort: 
+  {
+    results: [
+    {
+      vote_count: 6804,
+      id: 862,
+      video: false,
+      vote_average: 7.8,
+      title: "Toy Story",
+      popularity: 38.043839,
+      poster_path: "/rhIRbceoE9lR4veEXuwCC2wARtG.jpg",
+      original_language: "en",
+      original_title: "Toy Story",
+      genre_ids: [
+        16,
+        35,
+        10751
+      ],
+      backdrop_path: "/dji4Fm0gCDVb9DQQMRvAI8YNnTz.jpg",
+      adult: false,
+      overview: "Led by Woody, Andy's toys live happily in his room until Andy's birthday brings Buzz Lightyear onto the scene. Afraid of losing his place in Andy's heart, Woody plots against Buzz. But when circumstances separate Buzz and Woody from their owner, the duo eventually learns to put aside their differences.",
+      release_date: "1995-10-30"
+    },
+    {
+      vote_count: 5758,
+      id: 10193,
+      video: false,
+      vote_average: 7.6,
+      title: "Toy Story 3",
+      popularity: 31.525238,
+      poster_path: "/AqYmOBxLjASrj5UtybIh7Axyv77.jpg",
+      original_language: "en",
+      original_title: "Toy Story 3",
+      genre_ids: [
+        16,
+        10751,
+        35
+      ],
+      backdrop_path: "/y2qAjM37QgatWeG84DDtwsZuMW.jpg",
+      adult: false,
+      overview: "Woody, Buzz, and the rest of Andy's toys haven't been played with in years. With Andy about to go to college, the gang find themselves accidentally left at a nefarious day care center. The toys must band together to escape and return home to Andy.",
+      release_date: "2010-06-16"
+    },
+    ]
+  },
+
+  movieTest: 
+  {
+    results: [
     {
       vote_count: 6804,
       id: 862,
@@ -592,7 +641,8 @@ var testDoubles = {
       overview: "Mater's decision to fly lands him accidentally at a big airshow.",
       release_date: "2011-08-04"
     }
-  ], 
+  ]
+}, 
 
   actorTest : 
     { id: 862, 
