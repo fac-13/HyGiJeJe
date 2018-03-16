@@ -18,8 +18,8 @@ form {
 }
 
 input {
-  background-color: #bfcfe2;
-  border: none;
+  background-color: hsl(202, 10%, 88%);
+  border: solid 2px hsl(213, 9%, 19%);
   height: 2rem;
   width: 30%;
   font-size: 1rem;
@@ -38,6 +38,7 @@ button {
   flex-direction: column;
   margin: auto;  
   width: 80%; 
+  background-color: hsl(213, 20%, 95%);
   }
 
   .list_item {
@@ -75,7 +76,7 @@ button {
 
 @media screen and (min-width: 500px) {
   .list_item {
-    border: 2px solid black; 
+    border: solid 3px hsl(213, 9%, 19%);
     display: grid; 
     grid-template-rows: 4rem 3fr;
     grid-template-columns: 50% 50%;
@@ -97,7 +98,7 @@ button {
 
   .list_profile {
     height: 7rem;
-    border: solid 2px hsl(213, 9%, 19%);
+    border: solid 3px hsl(213, 9%, 19%);
     overflow-y: scroll;
   }
 
