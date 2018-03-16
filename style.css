@@ -64,3 +64,18 @@ button {
   margin: 1rem auto;
   width: 50%;
 }
+
+.list_profile {
+  text-align: left;
+  display: flex; 
+  justify-content: space-between;
+  border: solid 1px blue;
+}
+
+.list_profile:not(:last-child){
+  margin-bottom: 1rem;
+}
+
+.list_profile img {
+  margin-right: 0.5rem;
+}
