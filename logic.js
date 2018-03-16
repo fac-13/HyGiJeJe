@@ -11,6 +11,7 @@ var apiRequests = {
       }
 
       else {
+        document.querySelector("#list").textContent = "Sorry! We can't get your results right now 😟"; 
         console.log("Status code" + xhr.status);
       }
     })
@@ -20,7 +21,7 @@ var apiRequests = {
   },
 
   movieDetails: function (response, cb) {
-
+     
     // cuts input array length to maximum of 5 items
     var result = response.results;
     if (result.length > 4) {
@@ -33,8 +34,9 @@ var apiRequests = {
       innerObject.title = item.title;
       innerObject.poster_path = item.poster_path;
       innerObject.overview = item.overview;
-      innerObject.release_date = item.release_date;
+      innerObject.release_date = item.release_date; 
       return innerObject;
+      
     })
     )
   },
