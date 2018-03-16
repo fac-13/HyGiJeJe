@@ -11,7 +11,8 @@ button.addEventListener('click', function (event) {
     event.preventDefault();
     //removing list items
     var wrapper = document.querySelector("#list");
-
+    movieIds = [];
+    
     while (wrapper.firstChild) {
         wrapper.removeChild(wrapper.firstChild);
     }
@@ -62,7 +63,6 @@ function displayMovies(movies) {
 
 // Display the information from wikipedia
 function displayActor(actor){
-    console.log(actor);
         var div = document.createElement('div');
         div.classList.add('list_profile');
 
