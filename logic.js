@@ -44,8 +44,8 @@ var apiRequests = {
 
 
   getMovieActors: function (response) {
-    if (response.cast.length > 3) {
-      response.cast.length = 3;
+    if (response.cast.length > 4) {
+      response.cast.length = 4;
     }
 
     return response.cast.map(function (value) {
