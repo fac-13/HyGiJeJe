@@ -49,7 +49,7 @@ button.addEventListener('click', function (event) {
                 var url2 = "https://api.themoviedb.org/3/movie/"+id+"/credits?api_key=" + moviesKey;
                 apiRequests.makeRequest(url2, function(info) {
                     apiRequests.getMovieActors(info, function(actors){
-                        var actors = actors.toString();
+                        var actors = actors.toString().replace(/\,/g, ", "); 
 
                         var paraActors = document.createElement('p');
                         var actorsNames = document.createTextNode(actors);
