@@ -35,7 +35,7 @@ In order to use the app, you need to:
 
  - The result for the cast is then trimmed to a maximum of 4 actors.
 
- - NOT IMPLEMENTED: The cast result is used to make a call to the Wikipedia API to get photos and summaries for each of the queried actors.
+ - The cast result is used to make a call to the Wikipedia API to get photos and summaries for each of the queried actors.
 
 
 ## HOW: describing the journey to completion
