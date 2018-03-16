@@ -39,10 +39,13 @@ button {
   margin: auto;  
   width: 80%; 
   background-color: hsl(213, 20%, 95%);
+  
   }
 
   .list_item {
     padding: 0 1rem;
+    border: solid 2px hsl(213, 9%, 19%);
+    margin-bottom: 2.5rem;
   }
 
   .list_title {
@@ -58,6 +61,7 @@ button {
     text-align: left;
     display: flex; 
     justify-content: space-between;
+    border-top: solid 3px hsl(213, 9%, 19%);
   }
 
   .list_profile:nth-child(4), .list_profile:nth-child(6) {
@@ -80,8 +84,11 @@ button {
     display: grid; 
     grid-template-rows: 4rem 3fr;
     grid-template-columns: 50% 50%;
-    margin-bottom: 2.5rem;
-  
+  }
+
+  .list_title {
+    font-weight: 700;
+    margin-top: 4rem;
   }
   
   .list_content {
@@ -110,7 +117,7 @@ button {
 
 @media screen and (min-width: 500px) {
   .list_content {
-    margin-top: 10%;
+    margin-top: 15%;
   }
 
 }
