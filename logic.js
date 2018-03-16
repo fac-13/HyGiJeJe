@@ -11,6 +11,7 @@ var apiRequests = {
       }
 
       else {
+        document.querySelector("#list").textContent = "Sorry! We can't get your results right now 😟"; 
         console.log("Status code" + xhr.status);
       }
     })
